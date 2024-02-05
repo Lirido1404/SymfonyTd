@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galerie Photo</title>
+    <link href="{{ asset('css/Galerie.css') }}" rel="stylesheet" />
+    <style>
+        .fade-in {
+            opacity: 0; /* Commencez avec une opacité de 0 */
+            animation: fadeInAnimation 0.25s ease forwards; /* Animation d'opacité */
+        }
+    </style>
+</head>
+<body>
+    <h1>Galerie Photo</h1>
+
+    <div class="gallery">
+        {% set pagenb = 2 %}
+        {% set delay = 0 %}
+        {% for image in images %}
+            <div class="divVoitures fade-in" style="animation-delay: {{ delay }}s;">
+                <img src="{{ asset('Images/' ~ image) }}" alt="Image">
+                <span>{{ image }}</span>
+            </div>
+            {% set delay = delay + 0.3 %} 
+            
+                
+        {% endfor %}
+
+        <a href="{{ path('galerie', {'page': pagenb }) }}">Page suivante</a>
+            
+           
+    </div>
+</body>
+</html>
