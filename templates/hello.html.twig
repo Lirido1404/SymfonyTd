@@ -1,0 +1,20 @@
+{# templates/hello.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello {{ name }}!</title>
+</head>
+<body>
+    <h1>Hello {{ name }}!</h1>
+
+    {% if messages is defined %}
+        {% for messageType, messageList in messages %}
+            <ul>
+                {% for message in messageList %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
